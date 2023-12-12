@@ -1,10 +1,19 @@
+/**
+ * Class extending Calculator to provide additional logic for BMI calculation and maintenance calories.
+ */
 public class BMICalculator extends Calculator {
     private static final int MALE_CALORIE_BASE = 2000;
     private static final int FEMALE_CALORIE_BASE = 1800;
     private static final double SEDENTARY_MULTIPLIER = 1.2;
     private static final double MODERATE_MULTIPLIER = 1.5;
     private static final double ACTIVE_MULTIPLIER = 1.7;
-
+    /**
+     * Calculate BMI based on weight in pounds and height in inches.
+     *
+     * @param weightInPounds Weight in pounds.
+     * @param heightInInches Height in inches.
+     * @return Calculated BMI.
+     */
 
     @Override
     public double calculateBMI(double weightInPounds, double heightInInches) {
@@ -12,7 +21,12 @@ public class BMICalculator extends Calculator {
         double heightInMeters = super.convertToMeters(heightInInches);
         return weightInKilograms / (Math.pow(heightInMeters, 2) != 0 ? Math.pow(heightInMeters, 2) : 1);
     }
-
+    /**
+     * Get the BMI category based on the calculated BMI.
+     *
+     * @param bmi Calculated BMI.
+     * @return BMI category as a string.
+     */
 
     public String getBMICategory(double bmi) {
         if (bmi < 18.5) {
@@ -25,7 +39,16 @@ public class BMICalculator extends Calculator {
             return "Obesity";
         }
     }
-
+    /**
+     * Calculate maintenance calories based on user information and activity level.
+     *
+     * @param weightInPounds Weight in pounds.
+     * @param heightInInches Height in inches.
+     * @param gender Gender (M/F).
+     * @param age Age.
+     * @param activityLevel Activity level (sedentary/moderate/active).
+     * @return Calculated maintenance calories.
+     */
 
     public double calculateMaintenanceCalories(double weightInPounds, double heightInInches, char gender, int age, String activityLevel) {
         double weightInKilograms = this.convertToKilograms(weightInPounds);

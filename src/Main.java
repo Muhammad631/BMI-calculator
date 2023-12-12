@@ -1,5 +1,12 @@
 import java.util.Date;
+/**
+ * The main class to execute our BMI calculator program
+ */
 public class Main {
+    /**
+     * main method that initializes user input, calculates BMI and maintenance calories,
+     * and displays the results along with the current date.
+     */
     public static void main(String[] args) {
         UserInput userInputHandler = new UserInput();
         userInputHandler.displayActivityLevels();
@@ -18,8 +25,6 @@ public class Main {
         System.out.printf("Your BMI: %.2f\n", bmi);
         System.out.println("BMI Category: " + bmiCategory);
         System.out.printf("Maintenance Calories: %.2f\n", maintenanceCalories);
-
-
 
 
         Date date = new Date();
